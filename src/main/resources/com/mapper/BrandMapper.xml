@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.BrandMapper">
+    <!--注册用户-->
+    <insert id="adduser">
+    insert into user values(#{user.username},#{user.password},null)
+    </insert>
+
+    <!--增加一个todo-->
+    <insert id="addtodo">
+    insert into ${tablename} values(null,#{todoname})
+    </insert>
+
+    <!--创建用户表-->
+    <update id="createuser">
+        create table ${tablename} (id INT(11) NOT NULL AUTO_INCREMENT, todo VARCHAR(45) DEFAULT NULL, PRIMARY KEY (id))
+    </update>
+    <delete id="deletebyid">
+        delete from ${tablename} where id = #{id};
+    </delete>
+
+    <!--查询用户是否存在-->
+    <select id="selectuser" resultType="java.lang.String">
+    select username from user where username = #{user};
+    </select>
+
+    <!--登录-->
+    <select id="selectusps" resultType="java.lang.String">
+    select password from user where username = #{user};
+    </select>
+
+    <!--检查表存在-->
+    <select id="selecttable" resultType="java.lang.String">
+        select table_name FROM INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA = 'kclw' AND TABLE_NAME = #{tablename}
+    </select>
+    <!--查询所有的todo-->
+    <select id="selectall" resultType="com.pojo.Todo">
+        select * from ${tablename}
+    </select>
+</mapper>

@@ -1,0 +1,13 @@
+com\mapper\BrandMapper.class
+com\web\servlet\Login.class
+com\web\servlet\Adduser.class
+com\web\servlet\Selectuser.class
+com\web\servlet\CreatUser.class
+com\service\impl\UserServiceimpl.class
+com\web\servlet\DeletByid.class
+com\util\SqlSessionFactoryUtils.class
+com\web\servlet\Addtodo.class
+com\pojo\User.class
+com\web\servlet\Selectall.class
+com\pojo\Todo.class
+com\service\Userservice.class
